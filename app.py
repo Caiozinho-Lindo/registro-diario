@@ -43,7 +43,9 @@ def gerar():
     tpl.save(buf)
     buf.seek(0)
 
-    nome = f"RegistroDiario_{contexto['paciente'].replace(' ','_')}.docx"
+    partes = contexto['paciente'].strip().split()
+nome_rd = ' '.join(partes[:2]) if len(partes) >= 2 else partes[0]
+nome = f"RD - {nome_rd}.docx"
     return send_file(buf, as_attachment=True, download_name=nome,
         mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
 
