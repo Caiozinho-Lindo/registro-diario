@@ -487,9 +487,6 @@ async function gerarDocx(){
     msg.textContent = '✅ Documento gerado!';
     setTimeout(function(){ bar.classList.remove('visible'); }, 2500);
 
-    // Exibe a mensagem especial 💚
-    setTimeout(function(){ document.getElementById('loveModal').classList.add('open'); }, 400);
-
   } catch(e) {
     console.error(e);
     msg.textContent = '❌ ' + (e.message || 'Erro ao conectar com o servidor.');
