@@ -5,114 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Registro Diário – Fonoaudiologia UTP</title>
 <style>
-/* ─── Reset ─── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-
-/* ─── Tokens ─── */
 :root{
-  --ink:#1a1a2e;
-  --ink2:#3d3d5c;
-  --green:#1b5e20;
-  --green-mid:#2e7d32;
-  --green-lt:#43a047;
-  --green-bg:#f1f8e9;
-  --border:#c8d8c0;
-  --surface:#ffffff;
-  --surface2:#f8faf6;
-  --radius:12px;
-  --radius-sm:7px;
-  --shadow:0 2px 20px rgba(27,94,32,.10);
-  --font:'Segoe UI',system-ui,Arial,sans-serif;
+  --ink:#1a1a2e;--ink2:#3d3d5c;--green:#1b5e20;--green-mid:#2e7d32;
+  --green-lt:#43a047;--green-bg:#f1f8e9;--border:#c8d8c0;
+  --surface:#ffffff;--surface2:#f8faf6;--radius:12px;--radius-sm:7px;
+  --shadow:0 2px 20px rgba(27,94,32,.10);--font:'Segoe UI',system-ui,Arial,sans-serif;
 }
-
-body{
-  font-family:var(--font);
-  background:var(--surface2);
-  color:var(--ink);
-  min-height:100vh;
-  padding-bottom:40px;
-}
-
-/* ─── Top bar ─── */
-.topbar{
-  background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 100%);
-  color:#fff;
-  padding:18px 20px 16px;
-  display:flex;align-items:center;gap:14px;
-  box-shadow:0 2px 12px rgba(0,0,0,.20);
-  position:sticky;top:0;z-index:100;
-}
-.topbar-icon{
-  width:44px;height:44px;border-radius:10px;
-  background:rgba(255,255,255,.18);
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;flex-shrink:0;
-}
+body{font-family:var(--font);background:var(--surface2);color:var(--ink);min-height:100vh;padding-bottom:40px}
+.topbar{background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 100%);color:#fff;padding:18px 20px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 12px rgba(0,0,0,.20);position:sticky;top:0;z-index:100}
+.topbar-icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .topbar-text h1{font-size:17px;font-weight:700;line-height:1.2}
 .topbar-text p{font-size:11px;opacity:.82;margin-top:2px}
-
-/* ─── Tab nav ─── */
-.tab-nav{
-  display:flex;background:#fff;
-  border-bottom:2px solid var(--border);
-  position:sticky;top:78px;z-index:99;
-}
-.tab-btn{
-  flex:1;padding:13px 6px;border:none;background:none;
-  font:600 13px var(--font);color:var(--ink2);cursor:pointer;
-  border-bottom:3px solid transparent;margin-bottom:-2px;
-  transition:color .2s,border-color .2s;
-  display:flex;align-items:center;justify-content:center;gap:5px;
-}
+.tab-nav{display:flex;background:#fff;border-bottom:2px solid var(--border);position:sticky;top:78px;z-index:99}
+.tab-btn{flex:1;padding:13px 6px;border:none;background:none;font:600 13px var(--font);color:var(--ink2);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;display:flex;align-items:center;justify-content:center;gap:5px}
 .tab-btn.active{color:var(--green-mid);border-bottom-color:var(--green-mid)}
 .tab-btn:hover:not(.active){color:var(--green-lt)}
-
-/* ─── Tab panels ─── */
 .tab-panel{display:none;padding:20px 16px 32px;max-width:720px;margin:0 auto}
 .tab-panel.active{display:block}
-
-/* ─── Section label ─── */
-.sec-label{
-  font-size:10.5px;font-weight:700;text-transform:uppercase;
-  letter-spacing:1.1px;color:var(--green-mid);
-  border-left:3px solid var(--green-mid);
-  padding-left:8px;margin:22px 0 13px;
-}
+.sec-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;color:var(--green-mid);border-left:3px solid var(--green-mid);padding-left:8px;margin:22px 0 13px}
 .sec-label:first-child{margin-top:0}
-
-/* ─── Fields ─── */
 .field{margin-bottom:14px}
-.field label{
-  display:block;font-size:12px;font-weight:600;
-  color:var(--ink2);margin-bottom:5px;
-}
-.field input,.field textarea{
-  width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);
-  padding:11px 13px;font:14px var(--font);color:var(--ink);
-  background:var(--surface);
-  transition:border-color .2s,box-shadow .2s;
-  resize:vertical;
-  -webkit-appearance:none;
-}
-.field input:focus,.field textarea:focus{
-  outline:none;border-color:var(--green-mid);
-  box-shadow:0 0 0 3px rgba(46,125,50,.13);
-}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--ink2);margin-bottom:5px}
+.field input,.field textarea{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 13px;font:14px var(--font);color:var(--ink);background:var(--surface);transition:border-color .2s,box-shadow .2s;resize:vertical;-webkit-appearance:none}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(46,125,50,.13)}
 .field textarea{min-height:100px;line-height:1.55}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:460px){.two-col{grid-template-columns:1fr}}
-
-/* ─── Buttons ─── */
-.btn{
-  display:flex;align-items:center;justify-content:center;
-  gap:8px;border:none;border-radius:var(--radius-sm);
-  font:600 15px var(--font);padding:15px 12px;
-  cursor:pointer;transition:filter .15s,transform .12s,box-shadow .15s;
-  text-align:center;line-height:1.2;width:100%;
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
-}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:var(--radius-sm);font:600 15px var(--font);padding:15px 12px;cursor:pointer;transition:filter .15s,transform .12s,box-shadow .15s;text-align:center;line-height:1.2;width:100%;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .btn:active{transform:scale(.96)}
 .btn-primary{background:var(--green-mid);color:#fff;box-shadow:0 2px 10px rgba(46,125,50,.32)}
 .btn-primary:hover{filter:brightness(1.08)}
@@ -121,49 +42,18 @@ body{
 .btn-word:hover{filter:brightness(1.1)}
 .btn-ghost{background:#fff;color:var(--green-mid);border:2px solid var(--green-mid)}
 .btn-ghost:hover{background:var(--green-bg)}
-
 .action-col{display:flex;flex-direction:column;gap:10px;margin-top:24px}
-
-/* ─── Status bar ─── */
-.status-bar{
-  display:none;
-  align-items:center;gap:10px;
-  background:var(--green-bg);border:1.5px solid var(--border);
-  border-radius:var(--radius-sm);padding:10px 14px;
-  font-size:13px;color:var(--green);margin-top:10px;
-}
+.status-bar{display:none;align-items:center;gap:10px;background:var(--green-bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;color:var(--green);margin-top:10px}
 .status-bar.visible{display:flex}
-.status-bar .spinner{
-  width:18px;height:18px;border-radius:50%;
-  border:2.5px solid #a5d6a7;border-top-color:var(--green-mid);
-  animation:spin .7s linear infinite;flex-shrink:0;
-}
+.status-bar .spinner{width:18px;height:18px;border-radius:50%;border:2.5px solid #a5d6a7;border-top-color:var(--green-mid);animation:spin .7s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* ─── Preview ─── */
-.preview-card{
-  background:#fff;border:1.5px solid var(--border);
-  border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;
-}
-.preview-toolbar{
-  display:flex;gap:8px;flex-wrap:wrap;
-  padding:12px 14px;border-bottom:1.5px solid var(--border);
-  background:var(--green-bg);
-}
+.preview-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.preview-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:12px 14px;border-bottom:1.5px solid var(--border);background:var(--green-bg)}
 .preview-toolbar .btn{width:auto;flex:1;padding:11px 8px;font-size:13px}
-
-#docPreview{
-  padding:20px 18px;
-  font-family:'Times New Roman',Times,serif;
-  font-size:12.5px;line-height:1.5;color:#000;min-height:200px;
-}
+#docPreview{padding:20px 18px;font-family:'Times New Roman',Times,serif;font-size:12.5px;line-height:1.5;color:#000;min-height:200px}
 .prev-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:5px}
 .prev-inst{font-style:italic;font-weight:bold;font-size:10.5px;flex:1}
-.prev-logo{
-  border:1.5px solid #2e7d32;border-radius:4px;
-  width:48px;height:42px;flex-shrink:0;margin-left:8px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
+.prev-logo{border:1.5px solid #2e7d32;border-radius:4px;width:48px;height:42px;flex-shrink:0;margin-left:8px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .prev-logo .u{font-weight:700;font-size:11px;color:#2e7d32;font-family:Arial,sans-serif}
 .prev-logo .ph{font-size:6.5px;color:#555;font-family:Arial,sans-serif;text-align:center}
 .prev-divider{border:none;border-top:0.5px solid #aaa;margin:5px 0 9px}
@@ -183,46 +73,12 @@ body{
 .empty-preview{padding:40px 20px;text-align:center;color:#aaa;font-family:var(--font)}
 .empty-preview .icon{font-size:38px;margin-bottom:10px}
 .empty-preview p{font-size:13px}
-
-/* ─── Love modal ─── */
-.modal-overlay{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.55);z-index:999;
-  align-items:center;justify-content:center;
-}
-.modal-overlay.open{display:flex}
-.modal-box{
-  background:#fff;border-radius:16px;
-  padding:36px 28px;text-align:center;
-  max-width:320px;width:90%;
-  box-shadow:0 8px 40px rgba(0,0,0,.28);
-  animation:pop .25s ease;
-}
-@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-box .heart{font-size:48px;margin-bottom:14px}
-.modal-box p{
-  font-size:18px;font-weight:700;color:var(--green);line-height:1.4;margin-bottom:20px;
-}
-.modal-box button{
-  background:var(--green-mid);color:#fff;border:none;
-  border-radius:8px;padding:12px 28px;font:600 15px var(--font);cursor:pointer;
-}
-
-/* ─── Toast ─── */
-#toast{
-  position:fixed;bottom:24px;left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:#1b1b2e;color:#fff;padding:10px 22px;
-  border-radius:20px;font-size:13px;z-index:9999;
-  opacity:0;transition:opacity .25s,transform .25s;
-  pointer-events:none;white-space:nowrap;
-}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#1b1b2e;color:#fff;padding:10px 22px;border-radius:20px;font-size:13px;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ═══ TOP BAR ═══ -->
 <div class="topbar">
   <div class="topbar-icon">📋</div>
   <div class="topbar-text">
@@ -231,19 +87,13 @@ body{
   </div>
 </div>
 
-<!-- ═══ TABS ═══ -->
 <div class="tab-nav">
   <button class="tab-btn active" id="btn-form" onclick="switchTab('form',this)">✏️ Formulário</button>
   <button class="tab-btn" id="btn-preview" onclick="switchTab('preview',this)">👁️ Prévia</button>
 </div>
 
-<!-- ══════════════════════════════════════
-     TAB: FORMULÁRIO
-══════════════════════════════════════ -->
 <div id="tab-form" class="tab-panel active">
-
   <div class="sec-label">Identificação</div>
-
   <div class="field">
     <label for="paciente">Nome do(a) Paciente *</label>
     <input type="text" id="paciente" placeholder="Ex: Emily Medeiros" autocomplete="off"/>
@@ -262,9 +112,7 @@ body{
       <input type="date" id="dataEntrega"/>
     </div>
   </div>
-
   <div class="sec-label">Dados Clínicos</div>
-
   <div class="field">
     <label for="objetivos">Objetivos Gerais e Específicos *</label>
     <textarea id="objetivos" rows="5" placeholder="Descreva os objetivos da sessão…"></textarea>
@@ -281,32 +129,20 @@ body{
     <label for="planejamento">Planejamento / Conduta *</label>
     <textarea id="planejamento" rows="5" placeholder="Descreva o planejamento e conduta…"></textarea>
   </div>
-
   <div class="action-col">
-    <button class="btn btn-primary" onclick="irParaPrevia()">
-      👁️ Visualizar Documento
-    </button>
-    <button class="btn btn-word" id="btnGerar" onclick="gerarDocx()">
-      ⬇️ Gerar e Baixar Word (.docx)
-    </button>
+    <button class="btn btn-primary" onclick="irParaPrevia()">👁️ Visualizar Documento</button>
+    <button class="btn btn-word" id="btnGerar" onclick="gerarDocx()">⬇️ Gerar e Baixar Word (.docx)</button>
     <div class="status-bar" id="statusBar">
       <div class="spinner"></div>
       <span id="statusMsg">Gerando documento…</span>
     </div>
   </div>
+</div>
 
-</div><!-- /tab-form -->
-
-<!-- ══════════════════════════════════════
-     TAB: PRÉVIA
-══════════════════════════════════════ -->
 <div id="tab-preview" class="tab-panel">
-
   <div class="preview-card">
     <div class="preview-toolbar">
-      <button class="btn btn-ghost" onclick="switchTab('form',document.getElementById('btn-form'))">
-        ✏️ Editar
-      </button>
+      <button class="btn btn-ghost" onclick="switchTab('form',document.getElementById('btn-form'))">✏️ Editar</button>
       <button class="btn btn-word" onclick="gerarDocx()">⬇️ Baixar Word</button>
     </div>
     <div id="docPreview">
@@ -316,48 +152,32 @@ body{
       </div>
     </div>
   </div>
+</div>
 
-</div><!-- /tab-preview -->
+<div id="toast"></div>
 
-/* ══════════════════════════════════════════
-   CONFIG — altere a URL se o backend mudar
-══════════════════════════════════════════ */
-// Em desenvolvimento local: http://localhost:5000
-// Em produção (Render): substitua pela URL do seu serviço
+<script>
 const BACKEND_URL = (function(){
-  const host = window.location.hostname;
-  // Se estiver rodando localmente, aponta para Flask local
-  if(host === 'localhost' || host === '127.0.0.1'){
-    return 'http://localhost:5000';
-  }
-  // Em produção: substitua pela URL do Render
-  // Ex: return 'https://registro-diario-backend.onrender.com';
+  var host = window.location.hostname;
+  if(host === 'localhost' || host === '127.0.0.1') return 'http://localhost:5000';
   return 'https://registro-diario-backend.onrender.com';
 })();
 
-/* ══════════════════════════════════════════
-   Helpers
-══════════════════════════════════════════ */
-function fmt(v){
-  if(!v) return '';
-  var p = v.split('-');
-  return p[2]+'/'+p[1]+'/'+p[0];
+function fmt(v){if(!v)return '';var p=v.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+
+function toast(msg,dur){
+  dur=dur||3000;
+  var el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('show');
+  setTimeout(function(){el.classList.remove('show')},dur);
 }
 
-function toast(msg, dur){
-  dur = dur || 3000;
-  var el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
-  setTimeout(function(){ el.classList.remove('show'); }, dur);
-}
-
-function switchTab(id, btn){
-  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
-  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function coletarDados(){
@@ -374,21 +194,18 @@ function coletarDados(){
 }
 
 function validar(d){
-  var campos = [d.paciente, d.estagiario, d.dataAtend, d.dataEntrega,
-                d.objetivos, d.estrategias, d.desenvolvimento, d.planejamento];
-  return campos.every(function(c){ return c && c !== ''; });
+  return [d.paciente,d.estagiario,d.dataAtend,d.dataEntrega,
+          d.objetivos,d.estrategias,d.desenvolvimento,d.planejamento]
+    .every(function(c){return c&&c!==''});
 }
 
 function esc(s){
   return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
 }
 
-/* ══════════════════════════════════════════
-   Prévia visual
-══════════════════════════════════════════ */
 function renderPrevia(d){
-  var el = document.getElementById('docPreview');
-  el.innerHTML = [
+  var el=document.getElementById('docPreview');
+  el.innerHTML=[
     '<div class="prev-header">',
       '<div class="prev-inst">Universidade Tuiuti do Paran&aacute; &ndash; Cl&iacute;nica de Fonoaudiologia</div>',
       '<div class="prev-logo"><span class="u">UTP</span><span class="ph">Promo&ccedil;&atilde;o Humana</span></div>',
@@ -403,20 +220,17 @@ function renderPrevia(d){
       '<span><strong>DATA DO ATENDIMENTO:</strong> '+fmt(d.dataAtend)+'</span>',
       '<span><strong>DATA DA ENTREGA DO REGISTRO:</strong> '+fmt(d.dataEntrega)+'</span>',
     '</div>',
-    '<table class="prev-table">',
-      '<thead><tr>',
-        '<th style="width:21%">OBJETIVOS GERAIS<br>E ESPEC&Iacute;FICOS</th>',
-        '<th style="width:23%">ESTRAT&Eacute;GIA(S)</th>',
-        '<th style="width:30%">DESENVOLVIMENTO</th>',
-        '<th style="width:26%">PLANEJAMENTO / CONDUTA</th>',
-      '</tr></thead>',
-      '<tbody><tr>',
-        '<td>'+esc(d.objetivos)+'</td>',
-        '<td>'+esc(d.estrategias)+'</td>',
-        '<td>'+esc(d.desenvolvimento)+'</td>',
-        '<td>'+esc(d.planejamento)+'</td>',
-      '</tr></tbody>',
-    '</table>',
+    '<table class="prev-table"><thead><tr>',
+      '<th style="width:21%">OBJETIVOS GERAIS<br>E ESPEC&Iacute;FICOS</th>',
+      '<th style="width:23%">ESTRAT&Eacute;GIA(S)</th>',
+      '<th style="width:30%">DESENVOLVIMENTO</th>',
+      '<th style="width:26%">PLANEJAMENTO / CONDUTA</th>',
+    '</tr></thead><tbody><tr>',
+      '<td>'+esc(d.objetivos)+'</td>',
+      '<td>'+esc(d.estrategias)+'</td>',
+      '<td>'+esc(d.desenvolvimento)+'</td>',
+      '<td>'+esc(d.planejamento)+'</td>',
+    '</tr></tbody></table>',
     '<div class="prev-sigs">',
       '<div class="prev-sig"><div class="line"></div>Assinatura supervisor(a)</div>',
       '<div class="prev-sig"><div class="line"></div>Assinatura estagi&aacute;rio(a)</div>',
@@ -425,84 +239,50 @@ function renderPrevia(d){
 }
 
 function irParaPrevia(){
-  var d = coletarDados();
-  if(!validar(d)){
-    toast('⚠️ Preencha todos os campos obrigatórios.');
-    return;
-  }
+  var d=coletarDados();
+  if(!validar(d)){toast('⚠️ Preencha todos os campos obrigatórios.');return;}
   renderPrevia(d);
-  switchTab('preview', document.getElementById('btn-preview'));
+  switchTab('preview',document.getElementById('btn-preview'));
 }
 
-/* ══════════════════════════════════════════
-   Geração do Word via backend Flask
-══════════════════════════════════════════ */
 async function gerarDocx(){
-  var d = coletarDados();
-  if(!validar(d)){
-    toast('⚠️ Preencha todos os campos antes de gerar.');
-    return;
-  }
-
-  // UI: loading
-  var btn     = document.getElementById('btnGerar');
-  var bar     = document.getElementById('statusBar');
-  var msg     = document.getElementById('statusMsg');
-  btn.disabled = true;
+  var d=coletarDados();
+  if(!validar(d)){toast('⚠️ Preencha todos os campos antes de gerar.');return;}
+  var btn=document.getElementById('btnGerar');
+  var bar=document.getElementById('statusBar');
+  var msg=document.getElementById('statusMsg');
+  btn.disabled=true;
   bar.classList.add('visible');
-  msg.textContent = 'Gerando documento…';
-
-  try {
-    var resp = await fetch(BACKEND_URL + '/gerar', {
-      method:  'POST',
-      headers: {'Content-Type': 'application/json'},
-      body:    JSON.stringify(d)
+  msg.textContent='Gerando documento…';
+  try{
+    var resp=await fetch(BACKEND_URL+'/gerar',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(d)
     });
-
     if(!resp.ok){
-      var erro = await resp.json().catch(function(){ return {erro: 'Erro desconhecido'}; });
-      throw new Error(erro.erro || 'Erro ' + resp.status);
+      var erro=await resp.json().catch(function(){return{erro:'Erro desconhecido'}});
+      throw new Error(erro.erro||'Erro '+resp.status);
     }
-
-    // Detecta nome do arquivo pelo header Content-Disposition
-    var cd       = resp.headers.get('Content-Disposition') || '';
-    var match    = cd.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
-    var filename = match ? match[1].replace(/['"]/g,'') :
-                   'RegistroDiario_'+d.paciente.replace(/\s+/g,'_')+'.docx';
-
-    // Download
-    var blob = await resp.blob();
-    var url  = URL.createObjectURL(blob);
-    var a    = document.createElement('a');
-    a.href        = url;
-    a.download    = filename;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function(){
-      URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-    }, 1000);
-
-    msg.textContent = '✅ Documento gerado!';
-    setTimeout(function(){ bar.classList.remove('visible'); }, 2500);
-
-  } catch(e) {
+    var cd=resp.headers.get('Content-Disposition')||'';
+    var match=cd.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+    var filename=match?match[1].replace(/['"]/g,''):'RD - '+d.paciente+'.docx';
+    var blob=await resp.blob();
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url;a.download=filename;a.style.display='none';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(url);document.body.removeChild(a)},1000);
+    msg.textContent='✅ Documento gerado!';
+    setTimeout(function(){bar.classList.remove('visible')},2500);
+  }catch(e){
     console.error(e);
-    msg.textContent = '❌ ' + (e.message || 'Erro ao conectar com o servidor.');
-    toast('❌ Erro: '+e.message, 5000);
-    setTimeout(function(){ bar.classList.remove('visible'); }, 5000);
-  } finally {
-    btn.disabled = false;
+    msg.textContent='❌ '+(e.message||'Erro ao conectar com o servidor.');
+    toast('❌ Erro: '+e.message,5000);
+    setTimeout(function(){bar.classList.remove('visible')},5000);
+  }finally{
+    btn.disabled=false;
   }
-}
-
-/* ══════════════════════════════════════════
-   Modal
-══════════════════════════════════════════ */
-function fecharModal(ev){
-  if(ev && ev.target !== document.getElementById('loveModal')) return;
-  document.getElementById('loveModal').classList.remove('open');
 }
 </script>
 </body>
